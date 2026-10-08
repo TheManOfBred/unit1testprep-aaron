@@ -34,6 +34,10 @@ public class LunchTime {
      */
     public LunchTime() {
         // TODO: Initialize all four instance variables.
+        numNugs = 10;
+        mysterySauce = 15.0;
+        enoughNugs = false;
+        entreeName = "8 piece";
     }
 
 
@@ -42,6 +46,10 @@ public class LunchTime {
      */
     public LunchTime(int nugs, double sauce, boolean enough, String name) {
         // TODO: Set all four instance variables using the parameters.
+        numNugs = nugs;
+        mysterySauce = sauce;
+        enoughNugs = enough;
+        entreeName = name;
     }
 
 
@@ -59,7 +67,8 @@ public class LunchTime {
      */
     public int getEntreeNameLength() {
         // TODO
-        return 0;
+        int l = entreeName.length();
+        return l;
     }
 
 
@@ -79,7 +88,8 @@ public class LunchTime {
      */
     public String getEntreeSubstring(int start, int end) {
         // TODO
-        return "";
+        String message = entreeName.substring(start, end);
+        return message;
     }
 
 
@@ -95,7 +105,8 @@ public class LunchTime {
      */
     public int containsNug() {
         // TODO
-        return 0;
+        int loc = entreeName.indexOf("Nug");
+        return loc;
     }
 
 
@@ -112,7 +123,8 @@ public class LunchTime {
      */
     public int compareLunchNames(String otherLunch) {
         // TODO
-        return 0;
+        int comp = entreeName.compareTo(otherLunch);
+        return comp;
     }
 
 
@@ -127,7 +139,8 @@ public class LunchTime {
      */
     public boolean isSameLunch(String otherLunch) {
         // TODO
-        return false;
+        boolean eq = entreeName.equals(otherLunch);
+        return eq;
     }
 
 
@@ -155,7 +168,8 @@ public class LunchTime {
        */
       public int cafeteriaRandomness(int lowNugs, int highNugs) {
           // TODO: return a random integer from lowNugs through highNugs
-          return 0;
+          int num = (int)((Math.random() * (highNugs-(lowNugs-1))) + lowNugs);
+          return num;
       }
 
 
@@ -169,7 +183,8 @@ public class LunchTime {
      */
     public double nuggetPower(double power) {
         // TODO
-        return 0.0;
+        double result = Math.pow(numNugs, power);
+        return result;
     }
 
     /**
@@ -179,7 +194,7 @@ public class LunchTime {
      */
     public boolean gotEnoughNugs() {
         // TODO
-        return false;
+        return enoughNugs;
     }
 
 
@@ -249,7 +264,10 @@ public class LunchTime {
      */
     public double sauceCatastrophe(double saucePower, double nugPower) {
         // TODO
-        return 0.0;
+        double sauceVal = Math.pow(mysterySauce, saucePower);
+        double nugVal = Math.pow(numNugs, nugPower);
+        double newVal = sauceVal - nugVal;
+        return newVal;
     }
 
 
@@ -277,7 +295,11 @@ public class LunchTime {
     public double distanceToNuggets(double studentX, double studentY,
                                     double nugX, double nugY) {
         // TODO
-        return 0.0;
+        double x = nugX - studentX;
+        double y = nugY - studentY;
+        double distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+                    
+        return distance;
     }
 
 
